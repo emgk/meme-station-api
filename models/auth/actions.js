@@ -20,7 +20,7 @@ module.exports.generateRefreshToken = (user) => {
 }
 
 // middleware
-module.exports.checkAuthentication = (req, res, next ) => {
+module.exports.checkToken = (req, res, next ) => {
     // get auth string from request
     const authorization = req.headers['authorization'];
     const token = authorization && authorization?.split( ' ' )?.[1];

@@ -1,11 +1,12 @@
 const express = require('express');
+const { checkToken } = require('../auth/actions');
 
 // Router
 const endpoints = express.Router();
 const actions = require('./actions');
 
 // add new
-endpoints.post( '/users/add',actions.addNew );
-endpoints.post( '/users/authenticate', actions.authenticate );
+endpoints.post( '/add-user', checkToken, actions.addNew );
+endpoints.post( '/login', actions.authenticate );
 
 module.exports = endpoints;

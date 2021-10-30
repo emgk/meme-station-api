@@ -14,7 +14,7 @@ const memes = [
     }
 ];
 
-router.get('/memes', ( req, res ) => {
+router.get('/memes', auth.checkToken, ( req, res ) => {
     res.json(memes);
 });
 

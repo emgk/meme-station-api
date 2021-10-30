@@ -1,18 +1,9 @@
 GET http://localhost:5000/memes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzU1NzQyNDQsImV4cCI6MTYzNTU3NTQ0NH0.eC7gs6FlWqbYfVPsPgYhxVz-7wSYBwyrcqAvt5z8oa0
+Authorization: Bearer eyJhbGciOiJIUzI1dgfdgdfgdNiIsInRfdsfds5cCI6IkpXVCJ9.eyJpYXQiOjE2MzU1NzQyNDQsImV4cCI6MTYzNTU3NTQ0NH0.eC7gs6FlWqbYfVPsPgYhxVz-7wSYBwyrcqAvt5z8oa0
 
 ###
 
-POST http://localhost:5000/login
-Content-Type: 'application/json'
-
-{
-    "username": "admin",
-}
-
-###
-
-POST http://localhost:5000/token
+POST http://localhost:5000/auth-token
 Content-Type: application/json
 
 {
@@ -21,7 +12,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:5000/users/add
+POST http://localhost:5000/user-add
 Content-Type: application/json
 
 {
@@ -32,7 +23,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:5000/users/authenticate
+POST http://localhost:5000/login
 Content-Type: application/json
 
 {

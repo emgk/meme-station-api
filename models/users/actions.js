@@ -37,7 +37,7 @@ const actions = {
             }else {
                 user.comparePassword(req.body.password, (err, isMatch) => {
                     if ( isMatch  && ! err ) {
-                        const userObj = {email: req.body.email, name: req.body.name };
+                        const userObj = {email: req.body.email};
                         res.json({
                              success: true,
                              accessToken: auth.generateAccessToken( userObj ),

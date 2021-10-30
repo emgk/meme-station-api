@@ -22,12 +22,12 @@ const PORT = process.env.PORT || 5000;
 app.use(cors());
 app.use(express.json());
 
-// check auth before every request
-app.use(auth.checkAuthentication);
-
 // use endpoints
 app.use(routes);
 app.use(usersEndpoint);
+
+app.use(passport.initialize())
+require('./config/passport')(passport);
 
 // start server
 app.listen( PORT, () => {
