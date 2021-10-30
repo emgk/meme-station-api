@@ -1,0 +1,34 @@
+{
+  "name": "meme-station-api",
+  "version": "1.0.0",
+  "description": "Meme station node.js API server",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/emgk/meme-station-api.git"
+  },
+  "author": "Govind Kumar <gkprmr@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/emgk/meme-station-api/issues"
+  },
+  "homepage": "https://github.com/emgk/meme-station-api#readme",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "connect-mongo": "^4.6.0",
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.0.12",
+    "morgan": "^1.10.0",
+    "passport": "^0.5.0",
+    "passport-jwt": "^4.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  }
+}
