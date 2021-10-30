@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Meme station node.js API server",
   "scripts": {
-    "start": "nodemon server.js"
+    "dev": "nodemon server.js",
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
