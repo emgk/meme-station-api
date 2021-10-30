@@ -3,6 +3,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1dgfdgdfgdNiIsInRfdsfds5cCI6IkpXVCJ9.eyJpYX
 
 ###
 
+###
+
 POST http://localhost:5000/auth-token
 Content-Type: application/json
 
@@ -23,10 +25,19 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:5000/login
+POST https://meme-station-api.herokuapp.com/login
 Content-Type: application/json
 
 {
     "email": "gkprmr@gmail.com",
     "password": "developer"
+}
+
+###
+
+POST http://localhost:5000/upload
+Content-Type: application/json
+
+{
+    "fdsf": "fdsfdsf"
 }

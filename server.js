@@ -11,6 +11,7 @@ const app = express();
 
 const routes = require('./routes/index');
 const usersEndpoint = require('./models/users/endpoints');
+const memesEndpoint = require('./models/memes/endpoints');
 const auth = require('./models/auth/actions');
 
 // connect to Mongo DB
@@ -25,6 +26,7 @@ app.use(express.json());
 // use endpoints
 app.use(routes);
 app.use(usersEndpoint);
+app.use(memesEndpoint);
 
 app.use(passport.initialize())
 require('./config/passport')(passport);
