@@ -1,6 +1,9 @@
-GET http://localhost:5000/memes?id=617d9ae1b0bab9de82365b78
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTY4NzMzNywiZXhwIjoxNjM1Njg4NTM3fQ.72wstF156ycvLFynLCXel3RrOGunRUa7-YW6T0-TVh8
+GET http://localhost:5000/memes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTcxMjU5NiwiZXhwIjoxNjM1NzEzNzk2fQ.FhsVPCkzasCO2cDmj_jo1Q0raGCRKwID1yYOwxei4Js
 ###
+
+GET https://meme-station-api.herokuapp.com/memes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTY4OTU4MywiZXhwIjoxNjM1NjkwNzgzfQ.WUBnhYbEB28XJLgaPAXxL1wMdqgumt9iN2OhQ9aLzk0
 
 ###
 

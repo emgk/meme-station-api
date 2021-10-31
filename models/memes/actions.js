@@ -69,9 +69,9 @@ const actions = {
             });
         } else {
             Memes.find(mongoQuery, function(err, memes){
-                var memesMap = {};
-                memes.forEach(function(meme){
-                    memesMap[meme._id]= meme;
+                var memesMap = [];
+                memes?.forEach(function(meme){
+                    memesMap.push(meme);
                 });
 
                 res.send(memesMap);
