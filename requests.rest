@@ -1,6 +1,5 @@
-GET http://localhost:5000/memes
-Authorization: Bearer eyJhbGciOiJIUzI1dgfdgdfgdNiIsInRfdsfds5cCI6IkpXVCJ9.eyJpYXQiOjE2MzU1NzQyNDQsImV4cCI6MTYzNTU3NTQ0NH0.eC7gs6FlWqbYfVPsPgYhxVz-7wSYBwyrcqAvt5z8oa0
-
+GET http://localhost:5000/memes?id=617d9ae1b0bab9de82365b78
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTY4NzMzNywiZXhwIjoxNjM1Njg4NTM3fQ.72wstF156ycvLFynLCXel3RrOGunRUa7-YW6T0-TVh8
 ###
 
 ###
@@ -25,6 +24,16 @@ Content-Type: application/json
 
 ###
 
+POST http://localhost:5000/login
+Content-Type: application/json
+
+{
+    "email": "gkprmr@gmail.com",
+    "password": "developer"
+}
+
+###
+
 POST https://meme-station-api.herokuapp.com/login
 Content-Type: application/json
 
@@ -41,3 +50,7 @@ Content-Type: application/json
 {
     "fdsf": "fdsfdsf"
 }
+
+################################
+
+POST https://meme-station-api.herokuapp.com/memes

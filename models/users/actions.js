@@ -2,8 +2,7 @@ require('dotenv').config();
 
 // auth + jwt methods
 const auth = require('../auth/actions');
-
-const User = require( './user');
+const User = require( './user'); 
 
 const actions = {
     addNew: (req, res) => {
@@ -29,7 +28,7 @@ const actions = {
     },
     authenticate: (req, res) => {
         User.findOne({
-            email: req.body.email
+            email: req.body.email 
         }, (err, user)=>{
             if ( err) throw err;
             if ( ! user ) {
@@ -37,9 +36,12 @@ const actions = {
             }else {
                 user.comparePassword(req.body.password, (err, isMatch) => {
                     if ( isMatch  && ! err ) {
-                        const userObj = {email: req.body.email};
+                        // create user object by user id
+                        const userObj = {id: user?._id?.toString()};
+
                         res.json({
                              success: true,
+                             id: user?._id?.toString(),
                              accessToken: auth.generateAccessToken( userObj ),
                              refreshToken: auth.generateRefreshToken( userObj )
                             });

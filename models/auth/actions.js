@@ -33,8 +33,3 @@ module.exports.checkToken = (req, res, next ) => {
         next();
     });
 }
-
-// list of refresh tokens
-module.exports.refreshTokens = [
-    'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpYXQiOjE2MzU1NjQ1NzF9.w4dyqfQ71lujO6WURVnGXUtCQUAQikfpaTA3CLgD7T4'
-];

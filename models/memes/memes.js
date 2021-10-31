@@ -25,6 +25,10 @@ const memesSchema = new mongoose.Schema({
     imageUrl: {
         type: String,
         require: true,
+    },
+    privacy: {
+        type: String,
+        require: true,
     }
 });
 

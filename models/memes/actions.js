@@ -12,7 +12,7 @@ const actions = {
         const body = req.body;
 
         if (! body.userId || ! body.title || ! body.folderId ) {
-            return res.json({success: false, error: {}, msg: 'Enter all fields!'});
+            return res.status(403).send({success: false, error: {}, msg: 'Enter all fields!'});
         } else {
             // split file name by dot
             let imageFile = req.file.originalname.split('.');
@@ -38,16 +38,46 @@ const actions = {
                 });
 
                 meme.save((err, newMeme) => {
-                    console.log( 'debug',err, newMeme);
                     if ( err) {
                         res.json({success: false, error: err, msg: 'Failed to post meme!'});
                     } else {
-                        res.json({success: true, mesg: 'Successfully posted meme!', data: meme});
+                        res.json({success: true, msg: 'Successfully posted meme!', data: meme});
                     }
                 });
             });
         }
-    }
+    },
+    getMemes: (req, res) => {
+        const { body, query } = req;
+
+        let mongoQuery = {};
+
+        // get by user id
+        if ( !! query?.userId ) {
+            mongoQuery = { ...mongoQuery, ...{ 'userId': query?.userId } };
+        }
+
+        // get by folder id
+        if ( !! query?.folderId ) {
+            mongoQuery = { ...mongoQuery, ...{ 'folderId': query?.folderId } };
+        }
+
+        // get by id
+        if ( !! query?.id ) {
+            Memes.findById(query?.id, function (err, meme){
+                res.send(meme);
+            });
+        } else {
+            Memes.find(mongoQuery, function(err, memes){
+                var memesMap = {};
+                memes.forEach(function(meme){
+                    memesMap[meme._id]= meme;
+                });
+
+                res.send(memesMap);
+            })
+        }
+    },
 }
 
 module.exports = actions;

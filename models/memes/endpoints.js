@@ -5,6 +5,7 @@ const express = require('express');
 const endpoints = express.Router();
 
 const actions = require('./actions');
+const { checkToken } = require('../auth/actions');
 
 const storage = multer.memoryStorage({
     destination:(res, file, callback) => {
@@ -15,7 +16,10 @@ const storage = multer.memoryStorage({
 // middleware
 const imageUploader = multer({storage}).single('image');
 
-// endpoint
-endpoints.post('/memes', imageUploader, actions.addNew );
+// create meme
+endpoints.post('/memes', [checkToken, imageUploader], actions.addNew );
+
+// get memes
+endpoints.get('/memes', checkToken, actions.getMemes);
 
 module.exports = endpoints;
