@@ -35,7 +35,7 @@ Content-Type: application/json
 
 GET http://localhost:5000/user-current
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc4NjA5MSwiZXhwIjoxNjM1Nzg3MjkxfQ.NQPtZe2PXXiHxOA0htgdoVliX4HFfEKYCo5xPx3z_ZA
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc5MDM2MCwiZXhwIjoxNjM1NzkxNTYwfQ.f3o0dtCf_CGRyt_tKD_P6562B0sk_NYWlwrBaNM_kaY
 
 ###
 
@@ -89,3 +89,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1Y
 ###
 
 POST https://meme-station-api.herokuapp.com/memes
+
+
+
+

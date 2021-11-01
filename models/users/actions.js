@@ -92,7 +92,7 @@ const actions = {
             }
 
             if ( result ) {
-                res.send(result);
+                res.send(result?.[0]);
             }
         });
     },
