@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const folderSchema = new mongoose.Schema({
     userId: {
         type: String,
-        require: true,
+        require: mongoose.Schema.Types.ObjectId,
     },
     title: {
         type: String,

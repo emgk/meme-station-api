@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 // meme schema
 const memeSchema = new mongoose.Schema({
     userId:{
-        type: String,
+        type: mongoose.Schema.Types.ObjectId,
         require: true,
     },
     title: {
@@ -19,7 +19,7 @@ const memeSchema = new mongoose.Schema({
         require: false,
     },
     folderId: {
-        type: Number,
+        type: mongoose.Schema.Types.ObjectId,
         require: false,
     },
     imageUrl: {

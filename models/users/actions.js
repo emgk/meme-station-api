@@ -2,7 +2,10 @@ require('dotenv').config();
 
 // auth + jwt methods
 const auth = require('../auth/actions');
-const User = require( './user'); 
+const User = require( './user');
+
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
 const actions = {
     addNew: (req, res) => {
@@ -63,11 +66,67 @@ const actions = {
         })
     },
     getCurrentUser: (req, res) => {
-        User.findById(req?.user?.id, function (err, user){
-            res.send(user);
+        User.aggregate([
+            {
+                "$match": { '_id': { $eq: ObjectId(req?.user?.id) } }
+            },
+            {
+                '$lookup': {
+                    "from": 'memes',
+                    "localField": '_id',
+                    "foreignField": 'userId',
+                    "as": 'memes'
+                }
+            },
+            {
+                '$lookup': {
+                    "from": 'folders',
+                    "localField": '_id',
+                    "foreignField": 'userId',
+                    "as": 'folders'
+                }
+            }
+        ]).exec((err, result) => {
+            if ( err) {
+                res.send(err);
+            }
+
+            if ( result ) {
+                res.send({success: true, error: {}, data: result});
+            }
         });
     },
-    getUserById: (id) => User.findById(id),
+    getUserById: (id) =>  {
+        User.aggregate([
+            {
+                "$match": { '_id': { $eq: ObjectId(id) } }
+            },
+            {
+                '$lookup': {
+                    "from": 'memes',
+                    "localField": '_id',
+                    "foreignField": 'userId',
+                    "as": 'memes'
+                }
+            },
+            {
+                '$lookup': {
+                    "from": 'folders',
+                    "localField": '_id',
+                    "foreignField": 'userId',
+                    "as": 'folders'
+                }
+            }
+        ]).exec((err, result) => {
+            if ( err) {
+                res.send(err);
+            }
+
+            if ( result ) {
+                res.send({success: true, error: {}, data: result});
+            }
+        });
+    },
 }
 
 module.exports = actions;

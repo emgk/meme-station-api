@@ -51,46 +51,26 @@ const actions = {
     },
     getMemes: (req, res) => {
         const { body, query } = req;
-        
-        let mongoQuery = {};
 
-        // get by user id
-        if ( !! query?.userId ) {
-            mongoQuery = { ...mongoQuery, ...{ 'userId': query?.userId } };
-        }
+        Meme.aggregate([
+            { 'createdAt': -1 },
+            {
+                "$lookup": {
+                    "from": "users",
+                    "localField": "userId",
+                    "foreignField": "_id",
+                    "as": "userData"
+                  }
+            }
+        ]).exec((err, result) => {
+            if ( err) {
+                res.send(err);
+            }
 
-        // get by folder id
-        if ( !! query?.folderId ) {
-            mongoQuery = { ...mongoQuery, ...{ 'folderId': query?.folderId } };
-        }
-
-        // get by id
-        if ( !! query?.id ) {
-            Meme.findById(query?.id).sort({createdAt: 'descending'}).exec(function(err, meme) { 
-                if ( err ) {
-                    return res.status(403).send({success: false, error: {}, msg: 'Could not fetch,please try again'});
-                }
-
-                userActions.getUserById(meme.userId).then((user)=>{
-                    return res.send(meme);
-                }).catch((err)=>{
-                    return res.status(403).send({success: false, error: {}, msg: 'Could not fetch,please try again'});
-                });
-            });
-        } else {
-
-            Meme.find(mongoQuery).sort({createdAt: 'descending'}).exec(function(err, memes) { 
-                if ( err ) {
-                    return res.status(403).send({success: false, error: {}, msg: 'Could not fetch,please try again'});
-                }
-                var memesMap = [];
-                memes?.forEach(function(meme){
-                    memesMap.push(meme);
-                });
-
-                res.send(memesMap);
-            });
-        }
+            if ( result ) {
+                res.send({success: true, error: {}, data: result});
+            }
+        });
     },
 }
 

@@ -1,5 +1,5 @@
-GET http://localhost:5000/memes?id=617fbb39e822bd8a28f085b4
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc2NDI4MCwiZXhwIjoxNjM1NzY1NDgwfQ.JnKSpCBDtkfNeYcvYrhYIyCkIR6YjbZRXzPj2OB9V7Q
+GET http://localhost:5000/memes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc4NzE1NywiZXhwIjoxNjM1Nzg4MzU3fQ.ujq_wvf4MNlITYT_C2-LhyNAA2ehEejYZtvyNvU5eBo
 ###
 
 GET https://meme-station-api.herokuapp.com/memes
@@ -29,7 +29,7 @@ Content-Type: application/json
 
 GET http://localhost:5000/user-current
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc0ODM5MSwiZXhwIjoxNjM1NzQ5NTkxfQ.FYL-xcQ5bY6SHqR4OVyiZkbVIymv72JbrBgoEZhheYI
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc4NjA5MSwiZXhwIjoxNjM1Nzg3MjkxfQ.NQPtZe2PXXiHxOA0htgdoVliX4HFfEKYCo5xPx3z_ZA
 
 ###
 
