@@ -1,4 +1,3 @@
-const Meme = require('./meme');
 const AWS = require('aws-sdk');
 const uuid = require('uuid').v4;
 
@@ -6,6 +5,8 @@ const S3 = new AWS.S3({
     accessKeyId: process.env.AMAZON_KEY_ID,
     secretAccessKey: process.env.AMAZON_SECRET_KEY,
 });
+
+const Meme = require('./meme');
 
 const actions = {
     addNew: (req, res) => {
