@@ -6,7 +6,8 @@ const endpoints = express.Router();
 const actions = require('./actions');
 
 // add new
-endpoints.post( '/add-user', checkToken, actions.addNew );
-endpoints.post( '/login', actions.authenticate );
+endpoints.get( '/user-current', checkToken, actions.getCurrentUser );
+endpoints.post( '/user-register', checkToken, actions.addNew );
+endpoints.post( '/user-login', actions.authenticate );
 
 module.exports = endpoints;

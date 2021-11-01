@@ -1,5 +1,5 @@
 GET http://localhost:5000/memes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTcxMjU5NiwiZXhwIjoxNjM1NzEzNzk2fQ.FhsVPCkzasCO2cDmj_jo1Q0raGCRKwID1yYOwxei4Js
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc0ODM5MSwiZXhwIjoxNjM1NzQ5NTkxfQ.FYL-xcQ5bY6SHqR4OVyiZkbVIymv72JbrBgoEZhheYI
 ###
 
 GET https://meme-station-api.herokuapp.com/memes
@@ -16,7 +16,7 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:5000/user-add
+POST http://localhost:5000/user-register
 Content-Type: application/json
 
 {
@@ -27,7 +27,13 @@ Content-Type: application/json
 
 ###
 
-POST http://localhost:5000/login
+GET http://localhost:5000/user-current
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc0ODM5MSwiZXhwIjoxNjM1NzQ5NTkxfQ.FYL-xcQ5bY6SHqR4OVyiZkbVIymv72JbrBgoEZhheYI
+
+###
+
+POST http://localhost:5000/user-login
 Content-Type: application/json
 
 {
@@ -54,6 +60,26 @@ Content-Type: application/json
     "fdsf": "fdsfdsf"
 }
 
-################################
+###
+
+GET http://localhost:5000/folders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc0NzIyNCwiZXhwIjoxNjM1NzQ4NDI0fQ.SeNX1COpdoF9LXALx-9hvqQteuSORkA4y4BbVwMROVQ
+
+###
+
+###
+
+POST http://localhost:5000/folders
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc0NzIyNCwiZXhwIjoxNjM1NzQ4NDI0fQ.SeNX1COpdoF9LXALx-9hvqQteuSORkA4y4BbVwMROVQ
+
+{
+    "userId": 1,
+    "title": "Dank Memes",
+    "description": "Collections of dank memes",
+    "privacy": "public"
+}
+###
 
 POST https://meme-station-api.herokuapp.com/memes

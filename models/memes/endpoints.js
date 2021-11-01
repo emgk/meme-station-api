@@ -4,7 +4,7 @@ const multer = require('multer');
 const express = require('express');
 const endpoints = express.Router();
 
-const actions = require('./actions');
+const actions = require('../memes/actions');
 const { checkToken } = require('../auth/actions');
 
 const storage = multer.memoryStorage({

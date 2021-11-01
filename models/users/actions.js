@@ -52,7 +52,12 @@ const actions = {
             }
 
         })
-    }
+    },
+    getCurrentUser: (req, res) => {
+        User.findById(req?.user?.id, function (err, user){
+            res.send(user);
+        });
+    },
 }
 
 module.exports = actions;

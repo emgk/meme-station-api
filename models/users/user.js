@@ -11,11 +11,29 @@ const userSchema = new mongoose.Schema({
         type: String,
         require: true,
     },
+    bio: {
+        type: String,
+        require: false,
+    },
     password: {
         type: String,
         require: true,
-    }
+    },
+    profilePicture: {
+        type: String,
+        require: false,
+    },
+    gender: {
+        type: String,
+        require: true,
+    },
+    city: {
+        type: String,
+        require: false,
+    },
 });
+
+userSchema.set('timestamps',true);
 
 userSchema.pre('save', function(next) {
     const user = this;

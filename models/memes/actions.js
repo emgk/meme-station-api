@@ -1,4 +1,4 @@
-const Memes = require('./memes');
+const Meme = require('./meme');
 const AWS = require('aws-sdk');
 const uuid = require('uuid').v4;
 
@@ -28,7 +28,7 @@ const actions = {
             S3.upload(params,(error, data) => {
                 if ( error ) return next(err);
 
-                const meme = Memes({
+                const meme = Meme({
                     userId: body.userId,
                     title: body.title,
                     description: body.description || '',
@@ -64,11 +64,11 @@ const actions = {
 
         // get by id
         if ( !! query?.id ) {
-            Memes.findById(query?.id, function (err, meme){
+            Meme.findById(query?.id, function (err, meme){
                 res.send(meme);
             });
         } else {
-            Memes.find(mongoQuery, function(err, memes){
+            Meme.find(mongoQuery, function(err, memes){
                 var memesMap = [];
                 memes?.forEach(function(meme){
                     memesMap.push(meme);

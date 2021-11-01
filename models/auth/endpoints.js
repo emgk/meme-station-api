@@ -16,7 +16,9 @@ endpoints.post('/auth-token', (req, res)=> {
 
     jwt.verify( refreshToken, process.env.REFRESH_TOKEN_SECRET, ( err, user ) => {
         if ( err ) return res.sendStatus(403);
-        const accessToken = auth.generateAccessToken( {email: user.email} );
+        // create user object by user id
+        const userObj = {id: user?._id?.toString()};
+        const accessToken = auth.generateAccessToken( userObj );
         res.json( { accessToken, refreshToken});
     })
 });
