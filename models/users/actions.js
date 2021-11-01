@@ -12,26 +12,27 @@ const actions = {
             return res.json({ success: false, error: {}, msg: 'Enter all fields!'})
         } else {
 
-            const result = await User.findOne({ email: body.email }).select("_id").lean();
 
-            if ( !result ) {
-                return res.status(400).send({success: false, error: err, msg: 'Email already exists, please try with different one.', });
-            }
-
-            const newUser = User({
-                name: body.name,
-                email: body.email,
-                password: body.password,
-                gender: body.gender,
-            });
-
-            newUser.save((err, newUser) => {
-                if ( err) {
-                    res.status(400).send({success: false, error: err, msg: 'Failed to save', });
+            User.findOne({ email: body.email }, (err, user )=>{
+                if ( user ) {
+                    return res.status(400).send({success: false, error: err, msg: 'Email already exists, please try with different one.', });
                 } else {
-                    res.json({success: true, msg: 'Account created succesfully!', data: newUser });
+                    const newUser = User({
+                        name: body.name,
+                        email: body.email,
+                        password: body.password,
+                        gender: body.gender,
+                    });
+        
+                    newUser.save((err, newUser) => {
+                        if ( err) {
+                            res.status(400).send({success: false, error: err, msg: 'Failed to save', });
+                        } else {
+                            res.json({success: true, msg: 'Account created succesfully!', data: newUser });
+                        }
+                    })
                 }
-            })
+            });
         }
     },
     authenticate: (req, res) => {
