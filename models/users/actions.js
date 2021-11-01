@@ -11,17 +11,25 @@ const actions = {
         if ( ! body.name  || ! body.password || ! body.email ) {
             return res.json({ success: false, error: {}, msg: 'Enter all fields!'})
         } else {
+
+            const result = await User.findOne({ email: body.email }).select("_id").lean();
+
+            if ( !result ) {
+                return res.status(400).send({success: false, error: err, msg: 'Email already exists, please try with different one.', });
+            }
+
             const newUser = User({
                 name: body.name,
                 email: body.email,
                 password: body.password,
+                gender: body.gender,
             });
 
             newUser.save((err, newUser) => {
                 if ( err) {
-                    res.json({success: false, error: err, msg: 'Failed to save', });
+                    res.status(400).send({success: false, error: err, msg: 'Failed to save', });
                 } else {
-                    res.json({success: true, msg: 'Succesfully saved!', data: newUser });
+                    res.json({success: true, msg: 'Account created succesfully!', data: newUser });
                 }
             })
         }
