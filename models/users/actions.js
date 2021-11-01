@@ -23,7 +23,7 @@ const actions = {
                         password: body.password,
                         gender: body.gender,
                     });
-        
+
                     newUser.save((err, newUser) => {
                         if ( err) {
                             res.status(400).send({success: false, error: err, msg: 'Failed to save', });
@@ -67,6 +67,7 @@ const actions = {
             res.send(user);
         });
     },
+    getUserById: (id) => User.findById(id),
 }
 
 module.exports = actions;

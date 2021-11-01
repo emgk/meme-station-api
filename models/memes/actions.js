@@ -7,6 +7,7 @@ const S3 = new AWS.S3({
 });
 
 const Meme = require('./meme');
+const userActions = require('../users/actions');
 
 const actions = {
     addNew: (req, res) => {
@@ -50,7 +51,7 @@ const actions = {
     },
     getMemes: (req, res) => {
         const { body, query } = req;
-
+        
         let mongoQuery = {};
 
         // get by user id
@@ -65,18 +66,30 @@ const actions = {
 
         // get by id
         if ( !! query?.id ) {
-            Meme.findById(query?.id, function (err, meme){
-                res.send(meme);
+            Meme.findById(query?.id).sort({createdAt: 'descending'}).exec(function(err, meme) { 
+                if ( err ) {
+                    return res.status(403).send({success: false, error: {}, msg: 'Could not fetch,please try again'});
+                }
+
+                userActions.getUserById(meme.userId).then((user)=>{
+                    return res.send(meme);
+                }).catch((err)=>{
+                    return res.status(403).send({success: false, error: {}, msg: 'Could not fetch,please try again'});
+                });
             });
         } else {
-            Meme.find(mongoQuery, function(err, memes){
+
+            Meme.find(mongoQuery).sort({createdAt: 'descending'}).exec(function(err, memes) { 
+                if ( err ) {
+                    return res.status(403).send({success: false, error: {}, msg: 'Could not fetch,please try again'});
+                }
                 var memesMap = [];
                 memes?.forEach(function(meme){
                     memesMap.push(meme);
                 });
 
                 res.send(memesMap);
-            })
+            });
         }
     },
 }
