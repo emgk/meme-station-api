@@ -88,18 +88,18 @@ const actions = {
             }
         ]).exec((err, result) => {
             if ( err) {
-                res.send(err);
+                res.status(400).send({success: false, error: err});
             }
 
             if ( result ) {
-                res.send({success: true, error: {}, data: result});
+                res.send(result);
             }
         });
     },
-    getUserById: (id) =>  {
+    getUserById: (req,body) =>  {
         User.aggregate([
             {
-                "$match": { '_id': { $eq: ObjectId(id) } }
+                "$match": { '_id': { $eq: ObjectId(req?.params?.id) } }
             },
             {
                 '$lookup': {
@@ -119,11 +119,11 @@ const actions = {
             }
         ]).exec((err, result) => {
             if ( err) {
-                res.send(err);
+                res.status(400).send({success: false, error: err});
             }
 
             if ( result ) {
-                res.send({success: true, error: {}, data: result});
+                res.send(result);
             }
         });
     },

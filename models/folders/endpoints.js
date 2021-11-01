@@ -21,5 +21,6 @@ endpoints.post('/folders', [checkToken, imageUploader], actions.addNew );
 
 // get memes
 endpoints.get('/folders', checkToken, actions.getFolders);
+endpoints.get('/folders/:id', checkToken, actions.getFolderById);
 
 module.exports = endpoints;

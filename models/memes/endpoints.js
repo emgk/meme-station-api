@@ -21,5 +21,6 @@ endpoints.post('/memes', [checkToken, imageUploader], actions.addNew );
 
 // get memes
 endpoints.get('/memes', checkToken, actions.getMemes);
+endpoints.get('/memes/:id', checkToken, actions.getMemeById);
 
 module.exports = endpoints;

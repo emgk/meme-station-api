@@ -9,6 +9,9 @@ const S3 = new AWS.S3({
 const Meme = require('./meme');
 const userActions = require('../users/actions');
 
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
+
 const actions = {
     addNew: (req, res) => {
         const body = req.body;
@@ -41,9 +44,9 @@ const actions = {
 
                 meme.save((err, newMeme) => {
                     if ( err) {
-                        res.json({success: false, error: err, msg: 'Failed to post meme!'});
+                        res.status(400).send({success: false, error: err,msg: 'Failed to post meme!'});
                     } else {
-                        res.json({success: true, msg: 'Successfully posted meme!', data: meme});
+                        res.json(meme);
                     }
                 });
             });
@@ -53,7 +56,7 @@ const actions = {
         const { body, query } = req;
 
         Meme.aggregate([
-            { 'createdAt': -1 },
+            { $sort: { 'createdAt': -1 } },
             {
                 "$lookup": {
                     "from": "users",
@@ -64,11 +67,34 @@ const actions = {
             }
         ]).exec((err, result) => {
             if ( err) {
-                res.send(err);
+                res.status(400).send({success: false, error: err});
             }
 
             if ( result ) {
-                res.send({success: true, error: {}, data: result});
+                res.send(result);
+            }
+        });
+    },
+    getMemeById: (req, res) => {
+        Meme.aggregate([
+            {
+                "$match": { '_id': { $eq: ObjectId(req?.params?.id) } }
+            },
+            {
+                "$lookup": {
+                    "from": "users",
+                    "localField": "userId",
+                    "foreignField": "_id",
+                    "as": "userData"
+                  }
+            }
+        ]).exec((err, result) => {
+            if ( err) {
+                res.status(400).send({success: false, error: err});
+            }
+
+            if ( result ) {
+                res.send(result);
             }
         });
     },

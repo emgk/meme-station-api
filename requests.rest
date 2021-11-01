@@ -1,5 +1,11 @@
-GET http://localhost:5000/memes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc4NzE1NywiZXhwIjoxNjM1Nzg4MzU3fQ.ujq_wvf4MNlITYT_C2-LhyNAA2ehEejYZtvyNvU5eBo
+GET http://localhost:5000/memes/617fe21736790976992176ac
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc4OTc0NSwiZXhwIjoxNjM1NzkwOTQ1fQ.tpAmQDC4pgnbjR9SxOl0nkplXZldHbbC1ArL0QsSo1k
+
+###
+
+GET http://localhost:5000/folders
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc4ODM4MSwiZXhwIjoxNjM1Nzg5NTgxfQ.1rldj1I6KrcNBHTwZL7CQwRygGOFXg1ybnwTjX78API
+
 ###
 
 GET https://meme-station-api.herokuapp.com/memes

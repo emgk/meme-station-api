@@ -7,6 +7,9 @@ const S3 = new AWS.S3({
     secretAccessKey: process.env.AMAZON_SECRET_KEY,
 });
 
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Schema.Types.ObjectId;
+
 const actions = {
     addNew: (req, res) =>  {
         const body = req.body;
@@ -66,9 +69,9 @@ const actions = {
 
                 folder.save((err, newFolder) => {
                     if ( err) {
-                        res.json({success: false, error: err, msg: 'Failed to create folder!'});
+                        res.status(400).send({success: false, error: err, msg: 'Failed to create folder!'});
                     } else {
-                        res.json({success: true, msg: 'Folder created successfully!', data: folder});
+                        res.json(folder);
                     }
                 });
             }
@@ -77,28 +80,48 @@ const actions = {
     getFolders: (req, res) => {
         const { body, query } = req;
 
-        let mongoQuery = {};
+        Folder.aggregate([
+            { $sort: { 'createdAt': -1 } },
+            {
+                "$lookup": {
+                    "from": "memes",
+                    "localField": "_id",
+                    "foreignField": "folderId",
+                    "as": "memes"
+                  }
+            }
+        ]).exec((err, result) => {
+            if ( err) {
+                res.status(400).send({success: false, error: err});
+            }
 
-        // get by user id
-        if ( !! query?.userId ) {
-            mongoQuery = { ...mongoQuery, ...{ 'userId': query?.userId } };
-        }
+            if ( result ) {
+                res.send(result);
+            }
+        });
+    },
+    getFolderById: (req, res) => {
+        Folder.aggregate([
+            {
+                "$match": { '_id': { $eq: ObjectId(req?.params?.id) } }
+            },
+            {
+                "$lookup": {
+                    "from": "memes",
+                    "localField": "_id",
+                    "foreignField": "folderId",
+                    "as": "memes"
+                  }
+            }
+        ]).exec((err, result) => {
+            if ( err) {
+                res.status(400).send({success: false, error: err});
+            }
 
-        // get by id
-        if ( !! query?.id ) {
-            Folder.findById(query?.id, function (err, folder){
-                res.send(folder);
-            });
-        } else {
-            Folder.find(mongoQuery, function(err, folders){
-                var foldersMap = [];
-                folders?.forEach(function(folder){
-                    foldersMap.push(folder);
-                });
-
-                res.send(foldersMap);
-            })
-        }
+            if ( result ) {
+                res.send(result);
+            }
+        });
     },
 }
 
