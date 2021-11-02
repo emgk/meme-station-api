@@ -63,7 +63,13 @@ const actions = {
                     "localField": "userId",
                     "foreignField": "_id",
                     "as": "userData"
-                  }
+                  },
+                "$lookup": {
+                    "from": "folders",
+                    "localField": "folderId",
+                    "foreignField": "_id",
+                    "as": "folders"
+                }
             }
         ]).exec((err, result) => {
             if ( err) {
