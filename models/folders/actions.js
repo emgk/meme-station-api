@@ -89,6 +89,14 @@ const actions = {
                     "foreignField": "folderId",
                     "as": "memes"
                   }
+            },
+            {
+                "$lookup": {
+                    "from": "users",
+                    "localField": "userId",
+                    "foreignField": "_id",
+                    "as": "user"
+                  }
             }
         ]).exec((err, result) => {
             if ( err) {
@@ -111,6 +119,14 @@ const actions = {
                     "localField": "_id",
                     "foreignField": "folderId",
                     "as": "memes"
+                  }
+            },
+            {
+                "$lookup": {
+                    "from": "users",
+                    "localField": "_id",
+                    "foreignField": "userId",
+                    "as": "user"
                   }
             }
         ]).exec((err, result) => {

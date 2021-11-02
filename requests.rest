@@ -4,7 +4,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1Y
 ###
 
 GET http://localhost:5000/folders
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTg0NTg5NywiZXhwIjoxNjM1ODQ3MDk3fQ.Fi4qf8SBY7T3kNO8VqAFoAk-YkcIscTvAjSZCfLEr_4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTg0NzU2OSwiZXhwIjoxNjM1ODQ4NzY5fQ.nmK2aJVIdXZzW5tFINgdYMtYOKTWablYnhTz9HWGNfs
 
 ###
 
@@ -52,7 +52,7 @@ Content-Type: application/json
 
 GET http://localhost:5000/user-current
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTg0NTg5NywiZXhwIjoxNjM1ODQ3MDk3fQ.Fi4qf8SBY7T3kNO8VqAFoAk-YkcIscTvAjSZCfLEr_4
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTg0ODA5MSwiZXhwIjoxNjM1ODQ5MjkxfQ.9Pk-fOZELY5X-rUCkDhB25xmrq2bv7zig7eJaQQyf7g
 
 ###
 

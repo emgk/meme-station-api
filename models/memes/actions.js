@@ -62,8 +62,11 @@ const actions = {
                     "from": "users",
                     "localField": "userId",
                     "foreignField": "_id",
-                    "as": "userData"
+                    "as": "user"
                   },
+            },
+            {
+
                 "$lookup": {
                     "from": "folders",
                     "localField": "folderId",
