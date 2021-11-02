@@ -8,7 +8,7 @@ const S3 = new AWS.S3({
 });
 
 const mongoose = require('mongoose');
-const ObjectId = mongoose.Schema.Types.ObjectId;
+const ObjectId = mongoose.Types.ObjectId;
 
 const actions = {
     addNew: (req, res) =>  {

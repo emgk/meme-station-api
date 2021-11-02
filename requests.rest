@@ -1,5 +1,5 @@
-GET http://localhost:5000/memes/617fe21736790976992176ac
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc4OTc0NSwiZXhwIjoxNjM1NzkwOTQ1fQ.tpAmQDC4pgnbjR9SxOl0nkplXZldHbbC1ArL0QsSo1k
+GET http://localhost:5000/memes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTgyNTUyMSwiZXhwIjoxNjM1ODI2NzIxfQ.Sq6cExPFfw5wzw_2ek-ZUn6McPviSqBlrqQ70sYGS6E
 
 ###
 
@@ -7,6 +7,23 @@ GET http://localhost:5000/folders
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc4ODM4MSwiZXhwIjoxNjM1Nzg5NTgxfQ.1rldj1I6KrcNBHTwZL7CQwRygGOFXg1ybnwTjX78API
 
 ###
+
+GET http://localhost:5000/save
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTgyNTIxMiwiZXhwIjoxNjM1ODI2NDEyfQ.DRV90BHxKbHT8El9xFRw3sBjTT4-vVOTKxti5Vf85RY
+
+###
+
+POST http://localhost:5000/save
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTgyNTIxMiwiZXhwIjoxNjM1ODI2NDEyfQ.DRV90BHxKbHT8El9xFRw3sBjTT4-vVOTKxti5Vf85RY
+Content-Type: application/json
+
+{
+    "userId": "617cd065c225303b62923a55",
+    "memeId": "617fbb39e822bd8a28f085b4",
+    "folderId": "617f86619863de2985761902"
+}
+###
+
 
 GET https://meme-station-api.herokuapp.com/memes
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTY4OTU4MywiZXhwIjoxNjM1NjkwNzgzfQ.WUBnhYbEB28XJLgaPAXxL1wMdqgumt9iN2OhQ9aLzk0
@@ -35,7 +52,7 @@ Content-Type: application/json
 
 GET http://localhost:5000/user-current
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc5MDM2MCwiZXhwIjoxNjM1NzkxNTYwfQ.f3o0dtCf_CGRyt_tKD_P6562B0sk_NYWlwrBaNM_kaY
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTc5NDQ2OSwiZXhwIjoxNjM1Nzk1NjY5fQ.GOdzgf3k1SDRh5m0TDONxrnvSToEcwY6gw6kuVjwC90
 
 ###
 

@@ -10,6 +10,7 @@ const app = express();
 const usersEndpoint = require('./models/users/endpoints');
 const memesEndpoint = require('./models/memes/endpoints');
 const foldersEndpoint = require('./models/folders/endpoints');
+const savedEndpoint = require('./models/save/endpoints');
 
 // connect to Mongo DB
 connectDB();
@@ -24,6 +25,7 @@ app.use(express.json());
 app.use(usersEndpoint);
 app.use(memesEndpoint);
 app.use(foldersEndpoint);
+app.use(savedEndpoint);
 
 app.use(passport.initialize())
 require('./config/passport')(passport);
