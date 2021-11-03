@@ -7,6 +7,7 @@ const S3 = new AWS.S3({
 });
 
 const Meme = require('./meme');
+const Save = require('./../save/save');
 const userActions = require('../users/actions');
 
 const mongoose = require('mongoose');
@@ -46,7 +47,17 @@ const actions = {
                     if ( err) {
                         res.status(400).send({success: false, error: err,msg: 'Failed to post meme!'});
                     } else {
-                        res.json(meme);
+                        const data = {
+                            userId: body.userId,
+                            memeId: meme.id,
+                            folderId: body.folderId ,
+                        };
+
+                        const folder = Save(data);
+                        folder.save((err, saved) => {
+                        console.log('after save', saved);
+                            res.json(meme);
+                        });
                     }
                 });
             });

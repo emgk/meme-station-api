@@ -7,8 +7,8 @@ Content-Type: application/json
 }
 ###
 
-GET http://localhost:5000/memes/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkxNDEzMCwiZXhwIjoxNjM1OTE1MzMwfQ.KgnyoXaHGI7zbbNW6sGhcPgzsckFBpyscadbZrdSJ7I
+GET http://localhost:5000/folders/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkxOTYyNCwiZXhwIjoxNjM2NTI0NDI0fQ.1hY55nut83F7KTidYR4-soNQ1PEUmRxzkeE4JBiYUNs
 
 ###
 
