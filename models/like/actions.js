@@ -88,7 +88,7 @@ const actions = {
     deleteLikeByMemeId: (req, res) => {
         Like.deleteOne({
             userId: { $eq: ObjectId(req?.user?.id) },
-            memeId: { $eq: ObjectId(req?.param?.id) }
+            memeId: { $eq: ObjectId(req?.params?.id) }
         }, function(err, result ){
             if ( err || result.deletedCount <= 0 ) {
                 res.status(400).send({success: false, error: err});

@@ -12,13 +12,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1Y
 
 ###
 
-POST http://localhost:5000/likes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkxNDEzMCwiZXhwIjoxNjM1OTE1MzMwfQ.KgnyoXaHGI7zbbNW6sGhcPgzsckFBpyscadbZrdSJ7I
-Content-Type: application/json
-
-{
-    "memeId": "617fe21736790976992176ac"
-}
+DELETE http://localhost:5000/likes/617fe21736790976992176ac
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkxNDk5NSwiZXhwIjoxNjM1OTE2MTk1fQ.Oe2n6sU8SrzHDBxsvob8cM985xJulmEb89Lz8EuKLMY
 
 ###
 
