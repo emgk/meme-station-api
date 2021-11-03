@@ -73,6 +73,15 @@ const actions = {
                     "foreignField": "_id",
                     "as": "folders"
                 }
+            },
+            {
+
+                "$lookup": {
+                    "from": "saves",
+                    "localField": "_id",
+                    "foreignField": "memeId",
+                    "as": "saved"
+                }
             }
         ]).exec((err, result) => {
             if ( err) {

@@ -99,7 +99,7 @@ const actions = {
     deleteSaveByMemeId: (req, res) => {
         Save.deleteOne({
             userId: { $eq: ObjectId(req?.user?.id) },
-            memeId: { $eq: ObjectId(req?.query?.memeId) }
+            memeId: { $eq: ObjectId(req?.params?.id) }
         }, function(err, result ){
             if ( err || result.deletedCount <= 0 ) {
                 res.status(400).send({success: false, error: err});

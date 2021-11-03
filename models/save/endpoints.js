@@ -11,6 +11,6 @@ endpoints.post('/save', checkToken, actions.addNew );
 
 // get saved post
 endpoints.get('/save', checkToken, actions.getSave);
-endpoints.delete('/save', checkToken, actions.deleteSaveByMemeId);
+endpoints.delete('/save/:id', checkToken, actions.deleteSaveByMemeId);
 
 module.exports = endpoints;

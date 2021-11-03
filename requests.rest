@@ -9,7 +9,7 @@ Content-Type: application/json
 ###
 
 GET http://localhost:5000/memes/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkwNzMxOSwiZXhwIjoxNjM1OTA4NTE5fQ.jAxLT0MeoGvI1h1yau_-yu33_kyaBjwwe1h2NeoWETs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkwOTM3MywiZXhwIjoxNjM1OTEwNTczfQ.izBXG1y6gM6J6bE4XamXOi2zRVsCK9BocktiwmvNYf0
 
 ###
 
@@ -40,20 +40,15 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1Y
 ###
 
 
-POST http://localhost:5000/save
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTgyNTIxMiwiZXhwIjoxNjM1ODI2NDEyfQ.DRV90BHxKbHT8El9xFRw3sBjTT4-vVOTKxti5Vf85RY
+GET https://meme-station-api.herokuapp.com/save
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkwOTI2MywiZXhwIjoxNjM1OTEwNDYzfQ.R_ndAAU09ar-H92TROXJrJKHLlBY7fkYN1C0C26iMLI
 Content-Type: application/json
 
-{
-    "userId": "617cd065c225303b62923a55",
-    "memeId": "617fbb39e822bd8a28f085b4",
-    "folderId": "617f86619863de2985761902"
-}
 ###
 
 
 GET https://meme-station-api.herokuapp.com/memes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTY4OTU4MywiZXhwIjoxNjM1NjkwNzgzfQ.WUBnhYbEB28XJLgaPAXxL1wMdqgumt9iN2OhQ9aLzk0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkwOTI2MywiZXhwIjoxNjM1OTEwNDYzfQ.R_ndAAU09ar-H92TROXJrJKHLlBY7fkYN1C0C26iMLI
 
 ###
 
