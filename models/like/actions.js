@@ -7,14 +7,13 @@ const actions = {
     addNew: (req, res) =>  {
         const body = req.body;
 
-        if (! body.userId || ! body.memeId ) {
+        if (! body.memeId ) {
             return res.status(403).send({success: false, error: {}, msg: 'Invalid request!'});
         } else {
             const data = {
-                userId: body.userId,
+                userId: req?.user?.id,
                 memeId: body.memeId,
             };
-
             const like = Like(data);
 
             like.save((err, newLike) => {

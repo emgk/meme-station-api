@@ -97,6 +97,8 @@ const actions = {
     },
 
     deleteSaveByMemeId: (req, res) => {
+        console.log(req.user.id);
+
         Save.deleteOne({
             userId: { $eq: ObjectId(req?.user?.id) },
             memeId: { $eq: ObjectId(req?.params?.id) }

@@ -7,11 +7,11 @@ const actions = require('./actions');
 const { checkToken } = require('../auth/actions');
 
 // save a post
-endpoints.post('/like', checkToken, actions.addNew );
+endpoints.post('/likes', checkToken, actions.addNew );
 
 // get saved post
-endpoints.get('/like', checkToken, actions.getLikes);
-endpoints.get('/like/:id', checkToken, actions.getLikeById);
-endpoints.delete('/like/:id', checkToken, actions.deleteLikeByMemeId);
+endpoints.get('/likes', checkToken, actions.getLikes);
+endpoints.get('/likes/:id', checkToken, actions.getLikeById);
+endpoints.delete('/likes/:id', checkToken, actions.deleteLikeByMemeId);
 
 module.exports = endpoints;

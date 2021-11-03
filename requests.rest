@@ -9,12 +9,22 @@ Content-Type: application/json
 ###
 
 GET http://localhost:5000/memes/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkwOTM3MywiZXhwIjoxNjM1OTEwNTczfQ.izBXG1y6gM6J6bE4XamXOi2zRVsCK9BocktiwmvNYf0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkxMDUzMywiZXhwIjoxNjM1OTExNzMzfQ.VBdG04cps4tNvYQkLCHSSPE2Nep54wyLLoxBAVXQxZw
 
 ###
 
-DELETE http://localhost:5000/memes/6181abb3b939e2c4633a8fd0
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkwNzMxOSwiZXhwIjoxNjM1OTA4NTE5fQ.jAxLT0MeoGvI1h1yau_-yu33_kyaBjwwe1h2NeoWETs
+POST http://localhost:5000/likes
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkxMjYwNywiZXhwIjoxNjM1OTEzODA3fQ.0k9I60UX10Xj6la1uDzHTghsz18nOqetkoPA7GZT59U
+Content-Type: application/json
+
+{
+    "memeId": "617fe21736790976992176ac"
+}
+
+###
+
+DELETE http://localhost:5000/save/617fe21736790976992176ac
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkxMDUzMywiZXhwIjoxNjM1OTExNzMzfQ.VBdG04cps4tNvYQkLCHSSPE2Nep54wyLLoxBAVXQxZw
 
 ###
 
@@ -23,8 +33,8 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1Y
 
 ###
 
-GET http://localhost:5000/folders
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkwNzg4OSwiZXhwIjoxNjM1OTA5MDg5fQ.F-D9gvxp_fVVOg7cQHe7XQ_wuiixHLaS0FXx3EusXn4
+DELETE http://localhost:5000/save/617fe21736790976992176ac
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkxMDUzMywiZXhwIjoxNjM1OTExNzMzfQ.VBdG04cps4tNvYQkLCHSSPE2Nep54wyLLoxBAVXQxZw
 
 ###
 
