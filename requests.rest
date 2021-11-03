@@ -5,16 +5,15 @@ Content-Type: application/json
     "email": "gkprmr@gmail.com",
     "password": "developer"
 }
-
 ###
 
 GET http://localhost:5000/memes/
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkxMDUzMywiZXhwIjoxNjM1OTExNzMzfQ.VBdG04cps4tNvYQkLCHSSPE2Nep54wyLLoxBAVXQxZw
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkxNDEzMCwiZXhwIjoxNjM1OTE1MzMwfQ.KgnyoXaHGI7zbbNW6sGhcPgzsckFBpyscadbZrdSJ7I
 
 ###
 
 POST http://localhost:5000/likes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkxMjYwNywiZXhwIjoxNjM1OTEzODA3fQ.0k9I60UX10Xj6la1uDzHTghsz18nOqetkoPA7GZT59U
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkxNDEzMCwiZXhwIjoxNjM1OTE1MzMwfQ.KgnyoXaHGI7zbbNW6sGhcPgzsckFBpyscadbZrdSJ7I
 Content-Type: application/json
 
 {
