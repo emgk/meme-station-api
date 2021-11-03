@@ -139,6 +139,17 @@ const actions = {
             }
         });
     },
+    deleteFolder: (req, res) => {
+        Folder.deleteOne({
+            _id: { $eq: ObjectId(req?.params?.id) }
+        }, function(err, result ){
+            if ( err || result.deletedCount <= 0 ) {
+                res.status(400).send({success: false, error: err});
+            } else {
+                res.send({success: true, data: result, msg: 'Deleted successfully'});
+            }
+        });
+    },
 }
 
 module.exports = actions;

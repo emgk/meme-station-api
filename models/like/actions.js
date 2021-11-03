@@ -1,5 +1,4 @@
-const Save = require('./save');
-const AWS = require('aws-sdk');
+const Like = require('./like');
 
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
@@ -8,28 +7,27 @@ const actions = {
     addNew: (req, res) =>  {
         const body = req.body;
 
-        if (! body.userId || ! body.memeId || ! body.folderId ) {
+        if (! body.userId || ! body.memeId ) {
             return res.status(403).send({success: false, error: {}, msg: 'Invalid request!'});
         } else {
             const data = {
                 userId: body.userId,
                 memeId: body.memeId,
-                folderId: body.folderId ,
             };
 
-            const folder = Save(data);
+            const like = Like(data);
 
-            folder.save((err, newFolder) => {
+            like.save((err, newLike) => {
                 if ( err) {
                     res.status(400).send({success: false, error: err, msg: 'Failed to save meme!'});
                 } else {
-                    res.json(folder);
+                    res.json(like);
                 }
             });
         }
     },
-    getSave: (req, res) => {
-        Save.aggregate([
+    getLikes: (req, res) => {
+        Like.aggregate([
             { $match: { 'userId': { $eq: ObjectId(req?.user?.id) } } },
             ...(
                 (req?.query?.memeId) ? [
@@ -44,14 +42,6 @@ const actions = {
                     "localField": "memeId",
                     "foreignField": "_id",
                     "as": "memes"
-                  }
-            },
-            {
-                "$lookup": {
-                    "from": "folders",
-                    "localField": "folderId",
-                    "foreignField": "_id",
-                    "as": "folders"
                   }
             },
             {
@@ -72,16 +62,16 @@ const actions = {
             }
         });
     },
-    getSaveById: (req, res) => {
-        Save.aggregate([
+    getLikeById: (req, res) => {
+        Like.aggregate([
             {
                 "$match": { '_id': { $eq: ObjectId(req?.params?.id) } }
             },
             {
                 "$lookup": {
                     "from": "memes",
-                    "localField": "_id",
-                    "foreignField": "folderId",
+                    "localField": "memeId",
+                    "foreignField": "_id",
                     "as": "memes"
                   }
             }
@@ -96,15 +86,15 @@ const actions = {
         });
     },
 
-    deleteSaveByMemeId: (req, res) => {
-        Save.deleteOne({
+    deleteLikeByMemeId: (req, res) => {
+        Like.deleteOne({
             userId: { $eq: ObjectId(req?.user?.id) },
             memeId: { $eq: ObjectId(req?.query?.memeId) }
         }, function(err, result ){
             if ( err || result.deletedCount <= 0 ) {
                 res.status(400).send({success: false, error: err});
             } else {
-                res.send({success: true, data: result, msg: 'Un-saved successfully'});
+                res.send({success: true, data: result, msg: 'Unliked successfully'});
             }
         });
     },

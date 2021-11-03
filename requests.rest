@@ -1,17 +1,44 @@
-GET http://localhost:5000/memes
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTg0NzU2OSwiZXhwIjoxNjM1ODQ4NzY5fQ.nmK2aJVIdXZzW5tFINgdYMtYOKTWablYnhTz9HWGNfs
+POST http://localhost:5000/user-login
+Content-Type: application/json
+
+{
+    "email": "gkprmr@gmail.com",
+    "password": "developer"
+}
+
+###
+
+GET http://localhost:5000/memes/
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkwNzMxOSwiZXhwIjoxNjM1OTA4NTE5fQ.jAxLT0MeoGvI1h1yau_-yu33_kyaBjwwe1h2NeoWETs
+
+###
+
+DELETE http://localhost:5000/memes/6181abb3b939e2c4633a8fd0
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkwNzMxOSwiZXhwIjoxNjM1OTA4NTE5fQ.jAxLT0MeoGvI1h1yau_-yu33_kyaBjwwe1h2NeoWETs
+
+###
+
+DELETE http://localhost:5000/folders/6181a57ab939e2c4633a8f8b
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkwNzg4OSwiZXhwIjoxNjM1OTA5MDg5fQ.F-D9gvxp_fVVOg7cQHe7XQ_wuiixHLaS0FXx3EusXn4
 
 ###
 
 GET http://localhost:5000/folders
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTg0NzU2OSwiZXhwIjoxNjM1ODQ4NzY5fQ.nmK2aJVIdXZzW5tFINgdYMtYOKTWablYnhTz9HWGNfs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkwNzg4OSwiZXhwIjoxNjM1OTA5MDg5fQ.F-D9gvxp_fVVOg7cQHe7XQ_wuiixHLaS0FXx3EusXn4
 
 ###
 
-GET http://localhost:5000/save
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTgyNTIxMiwiZXhwIjoxNjM1ODI2NDEyfQ.DRV90BHxKbHT8El9xFRw3sBjTT4-vVOTKxti5Vf85RY
+GET http://localhost:5000/save?memeId=617fe21736790976992176ac
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkwNTg4NCwiZXhwIjoxNjM1OTA3MDg0fQ.M-ztEXD0aQLoF-c5929SVcNvuf6XzE8XnyFfsjXDTnQ
 
 ###
+
+
+DELETE http://localhost:5000/save?memeId=617fe21736790976992176ac
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTkwNzExNSwiZXhwIjoxNjM1OTA4MzE1fQ.gbad5eQh8oDzx2iOhgYT0HEUEyuPyq-gBRwNJJXFKlg
+
+###
+
 
 POST http://localhost:5000/save
 Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTgyNTIxMiwiZXhwIjoxNjM1ODI2NDEyfQ.DRV90BHxKbHT8El9xFRw3sBjTT4-vVOTKxti5Vf85RY
@@ -50,9 +77,9 @@ Content-Type: application/json
 
 ###
 
-GET http://localhost:5000/user-current
+GET https://meme-station-api.herokuapp.com/user-current
 Content-Type: application/json
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTg0ODA5MSwiZXhwIjoxNjM1ODQ5MjkxfQ.9Pk-fOZELY5X-rUCkDhB25xmrq2bv7zig7eJaQQyf7g
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYxN2NkMDY1YzIyNTMwM2I2MjkyM2E1NSIsImlhdCI6MTYzNTg1NjQ2MywiZXhwIjoxNjM1ODU3NjYzfQ.AKg14hdPpLnR0V-0BB2w0hILvX9N1_6scTZDK1t363U
 
 ###
 
@@ -66,7 +93,7 @@ Content-Type: application/json
 
 ###
 
-POST https://meme-station-api.herokuapp.com/login
+POST https://meme-station-api.herokuapp.com/user-login
 Content-Type: application/json
 
 {
