@@ -109,6 +109,11 @@ const actions = {
             }
 
             if ( result ) {
+                result = result.map((r) => {
+                    r.is_saved = !! r.saved.find((save) => save.userId?.toString() === req.user.id && save.memeId?.toString() === r._id.toString() );
+                    r.is_liked = !! r.likes.find((like) => like.userId?.toString() === req.user.id && like.memeId?.toString() === r._id.toString() );
+                    return r;
+                })
                 res.send(result);
             }
         });
@@ -141,6 +146,11 @@ const actions = {
             }
 
             if ( result ) {
+                result = result.map((r) => {
+                    r.is_saved = !! r.saved.find((save) => save.userId?.toString() === req.user.id && save.memeId?.toString() === r._id.toString() );
+                    r.is_liked = !! r.likes.find((like) => like.userId?.toString() === req.user.id && like.memeId?.toString() === r._id.toString() );
+                    return r;
+                })
                 res.send(result?.[0]);
             }
         });
