@@ -41,6 +41,7 @@ const actions = {
                     tags: body.tags || '',
                     folderId: body.folderId,
                     imageUrl: data.Location,
+                    privacy: body.privacy || 'public',
                 });
 
                 meme.save((err, newMeme) => {

@@ -23,6 +23,7 @@ const actions = {
                 description: body.description || '',
                 tags: body.tags || '',
                 folderId: body.folderId,
+                privacy: body.privacy || 'public',
                 // imageUrl: data.Location,
             };
 
@@ -46,6 +47,7 @@ const actions = {
                         tags: body.tags || '',
                         folderId: body.folderId,
                         imageUrl: data.Location,
+                        privacy: body.privacy || 'public',
                     });
 
                     folder.save((err, newFolder) => {
@@ -65,6 +67,7 @@ const actions = {
                     tags: body.tags || '',
                     folderId: body.folderId,
                     imageUrl: '',
+                    privacy: body.privacy || 'public',
                 });
 
                 folder.save((err, newFolder) => {
