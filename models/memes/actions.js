@@ -66,7 +66,7 @@ const actions = {
     getMemes: (req, res) => {
         const { body, query } = req;
 
-        Meme.aggregate([
+        const queryOptions = [
             { $sort: { 'createdAt': -1 } },
             {
                 "$lookup": {
@@ -103,7 +103,17 @@ const actions = {
                     "as": "likes"
                 }
             }
-        ]).exec((err, result) => {
+        ];
+
+    
+
+        if ( req?.query?.folderId) {
+            queryOptions.push({
+                "$match": { 'folderId': { $eq: ObjectId(req?.query?.folderId) } }
+            });
+        }
+
+        Meme.aggregate(queryOptions).exec((err, result) => {
             if ( err) {
                 res.status(400).send({success: false, error: err});
             }
